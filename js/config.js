@@ -2,6 +2,7 @@
 // Set this to your deployed backend base URL (the domain that runs `server/index.js`).
 // Example: "https://your-backend.onrender.com"
 //
-// Leave as localhost for local testing.
-window.API_BASE_URL = "http://localhost:3000";
+// On GitHub Pages there is no backend running on localhost, so we default to empty
+// (frontend will call relative /api/... endpoints).
+window.API_BASE_URL = "";
 

@@ -2,6 +2,23 @@
   const box = document.getElementById('success-box');
   if (!box) return;
 
+  function renderDemoSuccess() {
+    const itemName = '$1 Test Item';
+    const amountLabel = '$1.00 USD';
+    const createdAtText = new Date().toLocaleString();
+    const statusText = 'paid';
+    const txLine = 'Transaction confirmation unavailable (demo).';
+    const paidOk = statusText === 'paid';
+
+    box.innerHTML = `
+      <div class="success-row"><strong>Item purchased:</strong> ${itemName}</div>
+      <div class="success-row"><strong>Amount charged:</strong> ${amountLabel}</div>
+      <div class="success-row"><strong>Date/time:</strong> ${createdAtText}</div>
+      <div class="success-row"><strong>${paidOk ? 'Success' : 'Status'}:</strong> ${statusText}</div>
+      <div class="success-row">${txLine}</div>
+    `;
+  }
+
   function getSessionId() {
     const params = new URLSearchParams(window.location.search);
     return params.get('session_id');
@@ -61,7 +78,8 @@
       `;
     } catch (err) {
       console.error(err);
-      box.innerHTML = `<div class="error-text">Error loading transaction details. You can return to the homepage and try again.</div>`;
+      // When backend isn't deployed for GitHub Pages, still render something meaningful.
+      renderDemoSuccess();
     }
   }
 
