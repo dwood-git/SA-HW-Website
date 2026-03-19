@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | BrookField Chase Tennis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --court-blue: #1e4d7b;
+            --court-light: #2d7ab5;
+            --forest-green: #1a3d2e;
+            --grass-green: #2d5a3d;
+            --sand: #e8dcc8;
+            --white: #faf9f7;
+            --text-dark: #1a1a1a;
+            --text-muted: #5a5a5a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--grass-green) 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: 0.08em;
+        }
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: var(--forest-green);
+            letter-spacing: 0.05em;
+            font-size: 3rem;
+            margin-bottom: 1.25rem;
+        }
+        .success-box {
+            background: rgba(26, 61, 46, 0.08);
+            border: 1px solid rgba(26, 61, 46, 0.18);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .success-row {
+            margin-top: 0.6rem;
+        }
+        .success-row strong {
+            font-weight: 800;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1.25rem;
+            color: #0b5c34;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .error-text {
+            color: #7a1f1f;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">BROOKFIELD CHASE TENNIS</div>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h1>Payment Successful</h1>
+        <div id="success-box" class="success-box" aria-live="polite">
+            Loading your transaction details...
+        </div>
+        <a class="back-link" href="/">Back to homepage</a>
+    </section>
+
+    <script src="js/config.js" defer></script>
+    <script src="js/success.js" defer></script>
+</body>
+</html>
+
