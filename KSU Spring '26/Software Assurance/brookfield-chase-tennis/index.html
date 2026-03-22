@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrookField Chase Tennis Courts | Duluth, GA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --court-blue: #1e4d7b;
+            --court-light: #2d7ab5;
+            --forest-green: #1a3d2e;
+            --grass-green: #2d5a3d;
+            --sand: #e8dcc8;
+            --white: #faf9f7;
+            --text-dark: #1a1a1a;
+            --text-muted: #5a5a5a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--grass-green) 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: 0.08em;
+        }
+
+        .student-id {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 0.25rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(180deg, var(--court-blue) 0%, var(--court-light) 50%, var(--forest-green) 100%);
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none; /* Prevent the background pattern from blocking clicks */
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: white;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.95);
+            margin-top: 0.5rem;
+        }
+
+        .required-display {
+            margin-top: 2rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 4px;
+            font-family: 'Source Sans 3', monospace;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: white;
+        }
+
+        .buy-section {
+            width: 100%;
+            max-width: 560px;
+            margin-top: 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 14px;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            position: relative;
+            z-index: 2;
+        }
+
+        .buy-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .buy-section p {
+            color: rgba(255,255,255,0.95);
+            text-align: center;
+            margin-top: 0.25rem;
+        }
+
+        .payment-button {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            border: none;
+            border-radius: 12px;
+            background: #19c37d;
+            color: #062015;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: transform 120ms ease, filter 120ms ease;
+            position: relative;
+            z-index: 3;
+        }
+
+        .payment-button:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.03);
+        }
+
+        .payment-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+            transform: none;
+        }
+
+        .checkout-status {
+            margin-top: 0.9rem;
+            min-height: 1.3em;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .checkout-note {
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--forest-green);
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .about {
+            background: var(--white);
+        }
+
+        .about p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .amenities {
+            background: var(--sand);
+        }
+
+        .amenity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .amenity-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .amenity-card span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box {
+            background: var(--forest-green);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+        }
+
+        .contact-box h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            opacity: 0.95;
+        }
+
+        .contact-box a {
+            color: #7dd3fc;
+        }
+
+        .hours {
+            margin-top: 1.5rem;
+        }
+
+        .hours p {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        footer {
+            background: var(--text-dark);
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="logo">BROOKFIELD CHASE TENNIS</div>
+            <p class="student-id">dwood69</p>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#amenities">Amenities</a>
+            <a href="#contact">Contact</a>
+            <a href="#buy">Buy $1</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>BrookField Chase Tennis Courts</h1>
+        <p class="hero-tagline">Premier outdoor tennis in Duluth, Georgia</p>
+        <div class="required-display">$1 PAYMENT TEST</div>
+
+        <section id="buy" class="buy-section" aria-label="Buy $1 Test Item">
+            <h2>$1 Test Item</h2>
+            <p>Buy a single test item for <strong>$1.00</strong>. Pay with a credit card using a secure hosted checkout.</p>
+            <button id="buy-dollar-item" class="payment-button" type="button">Buy $1 Test Item</button>
+            <div id="checkout-status" class="checkout-status" aria-live="polite"></div>
+        </section>
+    </section>
+
+    <section id="about" class="section about">
+        <h2>About Us</h2>
+        <p>BrookField Chase Tennis Courts offers a first-class outdoor tennis experience in the heart of Duluth. Our facility features well-maintained blue hard courts surrounded by lush greenery, a welcoming clubhouse, and ample parking. Whether you're here for league play, private lessons, or a friendly match, we provide the perfect setting for players of all skill levels. Our courts are fully wheelchair accessible, ensuring everyone can enjoy the game.</p>
+    </section>
+
+    <section id="amenities" class="section amenities">
+        <h2>Amenities</h2>
+        <div class="amenity-grid">
+            <div class="amenity-card">
+                <span>🎾</span>
+                <strong>Multiple Courts</strong>
+                <p>Premium blue hard courts</p>
+            </div>
+            <div class="amenity-card">
+                <span>🏠</span>
+                <strong>Clubhouse</strong>
+                <p>Pro shop & restrooms</p>
+            </div>
+            <div class="amenity-card">
+                <span>🅿️</span>
+                <strong>Free Parking</strong>
+                <p>Spacious lot with accessible spaces</p>
+            </div>
+            <div class="amenity-card">
+                <span>♿</span>
+                <strong>Wheelchair Accessible</strong>
+                <p>Inclusive for all</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Visit Us</h2>
+        <div class="contact-box">
+            <h3>Location</h3>
+            <p><strong>BrookField Chase Tennis Courts</strong><br>
+            3875 Coventry Park Ct<br>
+            Duluth, GA 30096</p>
+            <div class="hours">
+                <h3>Hours</h3>
+                <p><span>Monday – Friday</span><span>7:00 AM – 10:00 PM</span></p>
+                <p><span>Saturday – Sunday</span><span>8:00 AM – 8:00 PM</span></p>
+            </div>
+            <p style="margin-top:1.5rem;">For court reservations and lesson inquiries, please visit us during operating hours or contact our front desk.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© BrookField Chase Tennis Courts · 3875 Coventry Park Ct, Duluth, GA 30096</p>
+    </footer>
+
+    <script src="js/config.js" defer></script>
+    <script src="js/checkout.js" defer></script>
+</body>
+</html>
+
